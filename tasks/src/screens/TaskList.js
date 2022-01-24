@@ -14,6 +14,7 @@ import Task from '../components/Task'
 import Icon from 'react-native-vector-icons/FontAwesome'
 import AddTask from './AddTask'
 
+
 export default class TaskList extends Component{
     state = {
         showDoneTasks:false,

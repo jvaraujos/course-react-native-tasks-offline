@@ -7,12 +7,21 @@ import {Text,
 TouchableOpacity,
 TextInput } from 'react-native'
 import commonStyles from '../commonStyles'
+import DateTimePicker  from '@react-native-community/datetimepicker'
 
-const initialState ={desc:''}
-export default class App extends Component{
+const initialState ={desc:'',date:new Date()}
+
+export default class AddTask extends Component{
     state ={
         ...initialState
     }
+
+    getDateTimePicker = () => {
+        return <DateTimePicker
+        value={this.state.date}
+        onChange={(_,date)=> this.setState({date})} mode='date'/>
+    }
+
     render (){
         return (
         <Modal transparent={true} visible={this.props.isVisible} onRequestClose={this.props.onCancel} animationType='slide'>
@@ -24,6 +33,7 @@ export default class App extends Component{
                 <Text style={styles.header}>Nova Tarefa</Text>
                 <TextInput style={styles.input} placeholder='Informe a descricao...' value={this.state.desc}
                 onChangeText={desc=>this.setState({desc})}/>
+                {this.getDateTimePicker()}
                 <View style={styles.buttons}>
                     <TouchableOpacity onPress={this.props.onCancel}>
                         <Text style={styles.button}>Cancelar</Text>
