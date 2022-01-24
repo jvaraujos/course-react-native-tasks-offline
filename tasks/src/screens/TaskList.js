@@ -2,6 +2,7 @@ import React,{Component} from 'react'
 import {  SafeAreaView,Text,StyleSheet,ImageBackground, View } from 'react-native'
 import TodayImage from '../../assets/imgs/today.jpg'
 import moment from 'moment'
+import commonStyles from '../commonStyles'
 
 export default class TaskList extends Component{
     render (){
@@ -10,12 +11,14 @@ export default class TaskList extends Component{
         <SafeAreaView style={styles.container}>
         <ImageBackground source={TodayImage} style={styles.image}>
             <View style={styles.titleBar}>
-                <Text>Hoje</Text>
+                <Text style={styles.title}>Hoje</Text>
                 <Text>{today}</Text>
             </View>
             </ImageBackground>
         <View style={styles.taskList}>
-            <Text>React</Text>
+            <Text>Terefa #01</Text>
+            <Text>Terefa #02</Text>
+            <Text>Terefa #03</Text>
         </View>
         </SafeAreaView>
      )
@@ -34,5 +37,12 @@ const styles = StyleSheet.create({
      titleBar :{
          flex:1,
          justifyContent: 'flex-end',
+     },
+     title:{
+         fontFamily:commonStyles.fontFamily,
+         fontSize:50,
+         color:commonStyles.colors.secondary,
+         marginLeft:20,
+         marginBottom:20         
      }
     })
