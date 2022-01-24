@@ -1,10 +1,32 @@
 import React,{Component} from 'react'
-import {  SafeAreaView,Text,StyleSheet,ImageBackground, View } from 'react-native'
+import {  SafeAreaView,
+    Text,
+    StyleSheet,
+    ImageBackground,
+    View,
+    FlatList} from 'react-native'
 import TodayImage from '../../assets/imgs/today.jpg'
 import moment from 'moment'
 import commonStyles from '../commonStyles'
 import Task from '../components/Task'
+
+
 export default class TaskList extends Component{
+    state = {
+        task:[{
+                id:Math.random(),
+                desc:'Comprar livro de React Native',
+                estimatedAt: new Date(),
+                doneAt:new Date()
+        },
+        {
+            id:Math.random(),
+            desc:'Ler livro de React Native',
+            estimatedAt: new Date(),
+            doneAt:null
+    }]
+    }
+
     render (){
         const today = moment().locale('pt-br').format('ddd, D [de] MMMM')
         return (
@@ -16,40 +38,11 @@ export default class TaskList extends Component{
             </View>
             </ImageBackground>
         <View style={styles.taskList}>
-        <Task desc="Comprar Livro" estimatedAt={new Date() } doneAt={new Date()}/>
-        <Task desc="Ler Livro" estimatedAt={new Date() }doneAt={null}/>
-        <Task desc="Comprar Livro" estimatedAt={new Date() } doneAt={new Date()}/>
-        <Task desc="Ler Livro" estimatedAt={new Date() }doneAt={null}/>
-        <Task desc="Comprar Livro" estimatedAt={new Date() } doneAt={new Date()}/>
-        <Task desc="Ler Livro" estimatedAt={new Date() }doneAt={null}/>
-        <Task desc="Comprar Livro" estimatedAt={new Date() } doneAt={new Date()}/>
-        <Task desc="Ler Livro" estimatedAt={new Date() }doneAt={null}/>
-        <Task desc="Comprar Livro" estimatedAt={new Date() } doneAt={new Date()}/>
-        <Task desc="Ler Livro" estimatedAt={new Date() }doneAt={null}/>
-        <Task desc="Comprar Livro" estimatedAt={new Date() } doneAt={new Date()}/>
-        <Task desc="Ler Livro" estimatedAt={new Date() }doneAt={null}/>
-        <Task desc="Comprar Livro" estimatedAt={new Date() } doneAt={new Date()}/>
-        <Task desc="Ler Livro" estimatedAt={new Date() }doneAt={null}/>
-        <Task desc="Comprar Livro" estimatedAt={new Date() } doneAt={new Date()}/>
-        <Task desc="Ler Livro" estimatedAt={new Date() }doneAt={null}/>
-        <Task desc="Comprar Livro" estimatedAt={new Date() } doneAt={new Date()}/>
-        <Task desc="Ler Livro" estimatedAt={new Date() }doneAt={null}/>
-        <Task desc="Comprar Livro" estimatedAt={new Date() } doneAt={new Date()}/>
-        <Task desc="Ler Livro" estimatedAt={new Date() }doneAt={null}/>
-        <Task desc="Comprar Livro" estimatedAt={new Date() } doneAt={new Date()}/>
-        <Task desc="Ler Livro" estimatedAt={new Date() }doneAt={null}/>
-        <Task desc="Comprar Livro" estimatedAt={new Date() } doneAt={new Date()}/>
-        <Task desc="Ler Livro" estimatedAt={new Date() }doneAt={null}/>
-        <Task desc="Comprar Livro" estimatedAt={new Date() } doneAt={new Date()}/>
-        <Task desc="Ler Livro" estimatedAt={new Date() }doneAt={null}/>
-        <Task desc="Comprar Livro" estimatedAt={new Date() } doneAt={new Date()}/>
-        <Task desc="Ler Livro" estimatedAt={new Date() }doneAt={null}/>
-        <Task desc="Comprar Livro" estimatedAt={new Date() } doneAt={new Date()}/>
-        <Task desc="Ler Livro" estimatedAt={new Date() }doneAt={null}/>
-        <Task desc="Comprar Livro" estimatedAt={new Date() } doneAt={new Date()}/>
-        <Task desc="Ler Livro" estimatedAt={new Date() }doneAt={null}/>
-        <Task desc="Comprar Livro" estimatedAt={new Date() } doneAt={new Date()}/>
-        <Task desc="Ler Livro" estimatedAt={new Date() }doneAt={null}/>
+            <FlatList data={this.state.task}
+            keyExtractor={item=>item.id}
+            renderItem={({item})=>
+            <Task desc={item.desc} estimatedAt={item.estimatedAt} doneAt={item.doneAt}></Task>}>            
+            </FlatList>
         </View>
         </SafeAreaView>
      )
