@@ -15,7 +15,8 @@ import Icon from 'react-native-vector-icons/FontAwesome'
 
 export default class TaskList extends Component{
     state = {
-        showDonetask:false,
+        showDoneTasks:false,
+        visibleTasks:[],
         tasks:[{
                 id: Math.random(),
                 desc:'Comprar livro de React Native',
@@ -31,7 +32,21 @@ export default class TaskList extends Component{
     }
 
     toggleFilter = ()=>{
-        this.setState({showDonetask:!this.state.showDonetask})
+        this.setState({showDoneTasks:!this.state.showDoneTasks},this.filterTasks)
+    }
+    componentDidMount = () => { 
+        this.filterTasks()
+    }
+
+    filterTasks=()=>{
+        let visibleTasks = null
+        if(this.state.showDoneTasks){
+            visibleTasks=[...this.state.tasks]
+        }else{
+            const pending = task => task.doneAt===null
+            visibleTasks=this.state.tasks.filter(pending)
+        }
+        this.setState({visibleTasks})
     }
 
     toggleTask = taskId =>{
@@ -49,8 +64,8 @@ export default class TaskList extends Component{
         <SafeAreaView style={styles.container}>
         <ImageBackground source={TodayImage} style={styles.image}>
             <View style={styles.iconBar}>
-                <TouchableOpacity>
-                <Icon name={this.state.showDonetask?'eye':'eye-slash'} size={20} color={commonStyles.colors.secondary}/>
+                <TouchableOpacity onPress={this.toggleFilter}>
+                <Icon name={this.state.showDoneTasks?'eye':'eye-slash'} size={20} color={commonStyles.colors.secondary}/>
                 </TouchableOpacity>
             </View>
             <View style={styles.titleBar}>
@@ -58,9 +73,11 @@ export default class TaskList extends Component{
                 <Text>{today}</Text>
             </View>
             </ImageBackground>
+            
         <View style={styles.taskList}>
-            <FlatList data={this.state.tasks}
-            keyExtractor={item=>item.id}
+
+            <FlatList data={this.state.visibleTasks}
+            keyExtractor={item=>`${item.id}`}
             renderItem={({item})=>
             <Task {...item} toggleTask={this.toggleTask}/>}/>
         </View>
