@@ -33,7 +33,6 @@ const styles = StyleSheet.create({
      },
      titleBar :{
          flex:1,
-         justifyContent: 'center',
-         alignItems:'center'
+         justifyContent: 'flex-end',
      }
     })
