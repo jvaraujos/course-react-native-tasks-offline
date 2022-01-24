@@ -4,15 +4,18 @@ import {  SafeAreaView,
     StyleSheet,
     ImageBackground,
     View,
-    FlatList} from 'react-native'
+    FlatList,
+TouchableOpacity,
+Platform} from 'react-native'
 import TodayImage from '../../assets/imgs/today.jpg'
 import moment from 'moment'
 import commonStyles from '../commonStyles'
 import Task from '../components/Task'
-
+import Icon from 'react-native-vector-icons/FontAwesome'
 
 export default class TaskList extends Component{
     state = {
+        showDonetask:false,
         tasks:[{
                 id: Math.random(),
                 desc:'Comprar livro de React Native',
@@ -26,6 +29,11 @@ export default class TaskList extends Component{
             doneAt:null
     }]
     }
+
+    toggleFilter = ()=>{
+        this.setState({showDonetask:!this.state.showDonetask})
+    }
+
     toggleTask = taskId =>{
         const tasks = [...this.state.tasks]
         tasks.forEach(task=>{
@@ -40,6 +48,11 @@ export default class TaskList extends Component{
         return (
         <SafeAreaView style={styles.container}>
         <ImageBackground source={TodayImage} style={styles.image}>
+            <View style={styles.iconBar}>
+                <TouchableOpacity>
+                <Icon name={this.state.showDonetask?'eye':'eye-slash'} size={20} color={commonStyles.colors.secondary}/>
+                </TouchableOpacity>
+            </View>
             <View style={styles.titleBar}>
                 <Text style={styles.title}>Hoje</Text>
                 <Text>{today}</Text>
@@ -75,5 +88,11 @@ const styles = StyleSheet.create({
          color:commonStyles.colors.secondary,
          marginLeft:20,
          marginBottom:20         
+     },
+     iconBar :{
+        flexDirection:'row',
+        marginHorizontal:20,
+        justifyContent:'flex-end',
+        marginTop:Platform.OS==='ios'?30:10
      }
     })
