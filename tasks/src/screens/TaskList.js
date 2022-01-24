@@ -3,7 +3,7 @@ import {  SafeAreaView,Text,StyleSheet,ImageBackground, View } from 'react-nativ
 import TodayImage from '../../assets/imgs/today.jpg'
 import moment from 'moment'
 import commonStyles from '../commonStyles'
-
+import Task from '../components/Task'
 export default class TaskList extends Component{
     render (){
         const today = moment().locale('pt-br').format('ddd, D [de] MMMM')
@@ -16,9 +16,8 @@ export default class TaskList extends Component{
             </View>
             </ImageBackground>
         <View style={styles.taskList}>
-            <Text>Terefa #01</Text>
-            <Text>Terefa #02</Text>
-            <Text>Terefa #03</Text>
+        <Task desc="Comprar Livro" estimatedAt={new Date() } doneAt={new Date()}/>
+        <Task desc="Ler Livro" estimatedAt={new Date() }doneAt={null}/>
         </View>
         </SafeAreaView>
      )
