@@ -11,11 +11,20 @@ import moment from 'moment'
 import commonStyles from '../commonStyles'
 import DateTimePicker  from '@react-native-community/datetimepicker'
 
-const initialState ={desc:'',date:new Date()}
+const initialState ={desc:'',date:new Date(),showDateTimePicker:false}
 
 export default class AddTask extends Component{
     state ={
         ...initialState
+    }
+
+    save = () =>{
+        const newTask ={
+            desc:this.state.desc,
+            date:this.state.date
+        }
+            this.props.onSave&&this.props.onSave(newTask)
+            this.setState({...initialState})
     }
 
     getDateTimePicker = () => {
@@ -54,7 +63,7 @@ export default class AddTask extends Component{
                     <TouchableOpacity onPress={this.props.onCancel}>
                         <Text style={styles.button}>Cancelar</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity>
+                    <TouchableOpacity onPress={this.save}>
                     <Text style={styles.button}>Salvar</Text>
                     </TouchableOpacity>
                 </View>

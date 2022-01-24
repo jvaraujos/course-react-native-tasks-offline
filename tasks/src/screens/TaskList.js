@@ -5,8 +5,9 @@ import {  SafeAreaView,
     ImageBackground,
     View,
     FlatList,
-TouchableOpacity,
-Platform} from 'react-native'
+    TouchableOpacity,
+    Platform,
+    Alert} from 'react-native'
 import TodayImage from '../../assets/imgs/today.jpg'
 import moment from 'moment'
 import commonStyles from '../commonStyles'
@@ -52,6 +53,24 @@ export default class TaskList extends Component{
         this.setState({visibleTasks})
     }
 
+    addTask = newTask=>{
+        if(!newTask.desc||!newTask.desc.trim()){
+            Alert.alert('Dados invalidos','Descricao nao informada')
+            return
+        }
+
+        const tasks = [...this.state.tasks]
+
+        tasks.push({
+            id:Math.random(),
+            desc:newTask.desc,
+            estimatedAt:newTask.date,
+            doneAt:null
+        })
+
+        this.setState({tasks,showAddTask:false},this.filterTasks)
+    }
+
     toggleTask = taskId =>{
         const tasks = [...this.state.tasks]
         tasks.forEach(task=>{
@@ -66,7 +85,8 @@ export default class TaskList extends Component{
         return (
         <SafeAreaView style={styles.container}>
         <AddTask isVisible={this.state.showAddTask}
-        onCancel={()=>this.setState({showAddTask:false})}></AddTask>
+        onCancel={()=>this.setState({showAddTask:false})} 
+        onSave={this.addTask}/>
         <ImageBackground source={TodayImage} style={styles.image}>
             <View style={styles.iconBar}>
                 <TouchableOpacity onPress={this.toggleFilter}>
@@ -79,7 +99,6 @@ export default class TaskList extends Component{
             </View>
             </ImageBackground>       
         <View style={styles.taskList}>
-
             <FlatList data={this.state.visibleTasks}
             keyExtractor={item=>`${item.id}`}
             renderItem={({item})=>
