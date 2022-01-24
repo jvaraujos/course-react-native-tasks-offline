@@ -7,7 +7,7 @@ import {  SafeAreaView,
     FlatList,
     TouchableOpacity,
     Platform,
-    Alert} from 'react-native'
+    Alert,LogBox} from 'react-native'
 import TodayImage from '../../assets/imgs/today.jpg'
 import moment from 'moment'
 import commonStyles from '../commonStyles'
@@ -15,6 +15,9 @@ import Task from '../components/Task'
 import Icon from 'react-native-vector-icons/FontAwesome'
 import AddTask from './AddTask'
 
+LogBox.ignoreLogs([
+  "[react-native-gesture-handler] Seems like you\'re using an old API with gesture components, check out new Gestures system!",
+]);
 
 export default class TaskList extends Component{
     state = {
