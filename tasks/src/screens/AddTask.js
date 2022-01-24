@@ -5,7 +5,9 @@ import {Text,
     View,
     TouchableWithoutFeedback,
 TouchableOpacity,
-TextInput } from 'react-native'
+TextInput,
+Platform } from 'react-native'
+import moment from 'moment'
 import commonStyles from '../commonStyles'
 import DateTimePicker  from '@react-native-community/datetimepicker'
 
@@ -17,11 +19,25 @@ export default class AddTask extends Component{
     }
 
     getDateTimePicker = () => {
-        return <DateTimePicker
+        let datePicker= <DateTimePicker
         value={this.state.date}
         onChange={(_,date)=> this.setState({date})} mode='date'/>
-    }
 
+        const dateString = moment(this.state.date).format('ddd, D [de] MMMM [de] YYYY')
+        if(Platform.OS==='android'){
+            datePicker=(
+            <View>
+                <TouchableOpacity onPress={()=>this.setState({showDatePicker:true})}>
+                    <Text style={styles.date}>
+                    {dateString}
+                    </Text>
+                </TouchableOpacity>
+                {this.state.showDatePicker&&datePicker}
+            </View>
+            )
+        }
+        return datePicker
+    }
     render (){
         return (
         <Modal transparent={true} visible={this.props.isVisible} onRequestClose={this.props.onCancel} animationType='slide'>
@@ -85,5 +101,9 @@ const styles = StyleSheet.create({
          marginRight:30,
          color:commonStyles.colors.today
      },
-
+     date:{
+         fontFamily:commonStyles.fontFamily,
+         fontSize:20,
+        marginLeft:15,
+     }
     })
