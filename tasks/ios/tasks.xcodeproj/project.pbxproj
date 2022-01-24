@@ -28,6 +28,7 @@
 		EFAC6A2BC2EA4CF2AE09D6DF /* Octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3B52519DC8CB4A519FBE8EE3 /* Octicons.ttf */; };
 		4B55220B4C8046049156B957 /* SimpleLineIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8CB6D623AFCA44BF8E17D10C /* SimpleLineIcons.ttf */; };
 		660A042D83354F5EB31CC0B9 /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DDACB2630C814DF29DCCD444 /* Zocial.ttf */; };
+		A811060A986C44649066C2A3 /* Lato.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C0524812519546F49947AAED /* Lato.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +69,7 @@
 		3B52519DC8CB4A519FBE8EE3 /* Octicons.ttf */ = {isa = PBXFileReference; name = "Octicons.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/Octicons.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		8CB6D623AFCA44BF8E17D10C /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; name = "SimpleLineIcons.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/SimpleLineIcons.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		DDACB2630C814DF29DCCD444 /* Zocial.ttf */ = {isa = PBXFileReference; name = "Zocial.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/Zocial.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		C0524812519546F49947AAED /* Lato.ttf */ = {isa = PBXFileReference; name = "Lato.ttf"; path = "../assets/fonts/Lato.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -176,6 +178,7 @@
 				3B52519DC8CB4A519FBE8EE3 /* Octicons.ttf */,
 				8CB6D623AFCA44BF8E17D10C /* SimpleLineIcons.ttf */,
 				DDACB2630C814DF29DCCD444 /* Zocial.ttf */,
+				C0524812519546F49947AAED /* Lato.ttf */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -287,6 +290,7 @@
 				EFAC6A2BC2EA4CF2AE09D6DF /* Octicons.ttf in Resources */,
 				4B55220B4C8046049156B957 /* SimpleLineIcons.ttf in Resources */,
 				660A042D83354F5EB31CC0B9 /* Zocial.ttf in Resources */,
+				A811060A986C44649066C2A3 /* Lato.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
