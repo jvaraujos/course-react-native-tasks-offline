@@ -18,6 +18,38 @@ export default class TaskList extends Component{
         <View style={styles.taskList}>
         <Task desc="Comprar Livro" estimatedAt={new Date() } doneAt={new Date()}/>
         <Task desc="Ler Livro" estimatedAt={new Date() }doneAt={null}/>
+        <Task desc="Comprar Livro" estimatedAt={new Date() } doneAt={new Date()}/>
+        <Task desc="Ler Livro" estimatedAt={new Date() }doneAt={null}/>
+        <Task desc="Comprar Livro" estimatedAt={new Date() } doneAt={new Date()}/>
+        <Task desc="Ler Livro" estimatedAt={new Date() }doneAt={null}/>
+        <Task desc="Comprar Livro" estimatedAt={new Date() } doneAt={new Date()}/>
+        <Task desc="Ler Livro" estimatedAt={new Date() }doneAt={null}/>
+        <Task desc="Comprar Livro" estimatedAt={new Date() } doneAt={new Date()}/>
+        <Task desc="Ler Livro" estimatedAt={new Date() }doneAt={null}/>
+        <Task desc="Comprar Livro" estimatedAt={new Date() } doneAt={new Date()}/>
+        <Task desc="Ler Livro" estimatedAt={new Date() }doneAt={null}/>
+        <Task desc="Comprar Livro" estimatedAt={new Date() } doneAt={new Date()}/>
+        <Task desc="Ler Livro" estimatedAt={new Date() }doneAt={null}/>
+        <Task desc="Comprar Livro" estimatedAt={new Date() } doneAt={new Date()}/>
+        <Task desc="Ler Livro" estimatedAt={new Date() }doneAt={null}/>
+        <Task desc="Comprar Livro" estimatedAt={new Date() } doneAt={new Date()}/>
+        <Task desc="Ler Livro" estimatedAt={new Date() }doneAt={null}/>
+        <Task desc="Comprar Livro" estimatedAt={new Date() } doneAt={new Date()}/>
+        <Task desc="Ler Livro" estimatedAt={new Date() }doneAt={null}/>
+        <Task desc="Comprar Livro" estimatedAt={new Date() } doneAt={new Date()}/>
+        <Task desc="Ler Livro" estimatedAt={new Date() }doneAt={null}/>
+        <Task desc="Comprar Livro" estimatedAt={new Date() } doneAt={new Date()}/>
+        <Task desc="Ler Livro" estimatedAt={new Date() }doneAt={null}/>
+        <Task desc="Comprar Livro" estimatedAt={new Date() } doneAt={new Date()}/>
+        <Task desc="Ler Livro" estimatedAt={new Date() }doneAt={null}/>
+        <Task desc="Comprar Livro" estimatedAt={new Date() } doneAt={new Date()}/>
+        <Task desc="Ler Livro" estimatedAt={new Date() }doneAt={null}/>
+        <Task desc="Comprar Livro" estimatedAt={new Date() } doneAt={new Date()}/>
+        <Task desc="Ler Livro" estimatedAt={new Date() }doneAt={null}/>
+        <Task desc="Comprar Livro" estimatedAt={new Date() } doneAt={new Date()}/>
+        <Task desc="Ler Livro" estimatedAt={new Date() }doneAt={null}/>
+        <Task desc="Comprar Livro" estimatedAt={new Date() } doneAt={new Date()}/>
+        <Task desc="Ler Livro" estimatedAt={new Date() }doneAt={null}/>
         </View>
         </SafeAreaView>
      )
